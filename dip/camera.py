@@ -8,6 +8,7 @@ if not cam.isOpened():
 
 print("Cam is Open")
 
+
 fourcc = cv.VideoWriter_fourcc(*'XVID')  # Codec
 out = cv.VideoWriter('./CamVideo/output.avi', fourcc, 20.0, (640, 480))
 
