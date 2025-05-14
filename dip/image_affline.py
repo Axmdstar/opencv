@@ -2,7 +2,8 @@ import cv2 as cv
 import numpy as np
 
 # read image
-im = cv.imread("images.jpg")
+im = cv.imread("me.jpg")
+im = cv.resize(im, (350, 660))
 # cv.imshow("lena.jpg", im)
 
 # Calculate the affine transformation matrix using
@@ -24,6 +25,9 @@ warp_mat = cv.getAffineTransform(srcTri, dstTri)
 # Perform an affine transformation on the original image
 # to obtain the target image.
 im_affine = cv.warpAffine(im, warp_mat, (im.shape[1], im.shape[0]))
-cv.imshow("im_affine.jpg", im_affine)
-cv.waitKey()
+while True:
+    cv.imshow("im_affine.jpg", im_affine)
+    if cv.waitKey(1) == ord("x"):
+        break
+
 cv.destroyAllWindows()
